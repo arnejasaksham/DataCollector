@@ -1,9 +1,6 @@
 package com.example.saksham.datacollector;
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageButton y=(ImageButton)findViewById(R.id.YouTube);
+        ImageButton y = findViewById(R.id.YouTube);
         y.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        ImageButton n=(ImageButton)findViewById(R.id.Netflix);
+        ImageButton n = findViewById(R.id.Netflix);
         n.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        ImageButton h=(ImageButton)findViewById(R.id.Hotstar);
+        ImageButton h = findViewById(R.id.Hotstar);
         h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        ImageButton b=(ImageButton)findViewById(R.id.blah);
+        ImageButton b = findViewById(R.id.blah);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

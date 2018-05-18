@@ -1,72 +1,72 @@
 package com.example.saksham.datacollector;
 
-import android.app.ListActivity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
-public class YouTubeList extends ListActivity {
+public class YouTubeList extends AppCompatActivity {
 
-    int id_count;
-
+    int idCount;
+    EditText id, playTime;
+    Button add;
+    Button play;
     //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
-    ArrayList<EditText> listItems=new ArrayList<EditText>();
+    ArrayList<String> a;
 
-    //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
+    /*//DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
     ArrayAdapter<EditText> adapter;
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        id_count=0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_tube_list);
+        Log.d("YouTube", "View Set");
+        idCount=0;
+        id = findViewById(R.id.ID);
+        playTime = findViewById(R.id.playbackTime);
+        a = new ArrayList<>();
 
-        adapter=new ArrayAdapter<EditText>(this,
-                android.R.layout.simple_list_item_1,
-                listItems);
-        setListAdapter(adapter);
+        //adapter=new ArrayAdapter<EditText>(this, android.R.layout.simple_list_item_1, listItems);
+        //setListAdapter(adapter);
 
         /*RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setAdapter(new adapter()); //create and set the adapter
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         */
 
-        Button add = (Button) findViewById(R.id.addID);
+        add = findViewById(R.id.addID);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                listItems.add(new EditText(YouTubeList.class));
-                adapter.notifyDataSetChanged();
+                a.add(id.getText().toString());
+                idCount++;
+                Toast.makeText(getApplicationContext(), "Added id " + id.getText().toString(), Toast.LENGTH_SHORT).show();
+                id.setText("");
+                //listItems.add(new EditText(this));
+                //adapter.notifyDataSetChanged();
             }
         });
 
-        final EditText editText = (EditText) findViewById(R.id.playbackTime);
-
-        final Button play = (Button) findViewById(R.id.play);
+        play = findViewById(R.id.play);
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int time = parseInt(editText.getText().toString());
-                String[] arr={"twZggnNbFqo", "Fn57JS9WnAQ", "NNeJR14kgTY"};
-                for(String s:arr)
+                int time = parseInt(playTime.getText().toString());
+                for(int i=0; i<idCount; i++)
                 {
-                    watchYoutubeVideo(YouTubeList.this, s, time);
+                    watchYoutubeVideo(YouTubeList.this, a.get(i), time);
                 }
             }
         });
@@ -75,11 +75,10 @@ public class YouTubeList extends ListActivity {
     public void watchYoutubeVideo(Context context, String id, int time) {
         Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
         Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://www.youtube.com/watch?v=" + id));
+                Uri.parse("https://www.youtube.com/watch?v=" + id));
         try {
             context.startActivity(appIntent);
-            long t1 = 0;
-            t1 = System.nanoTime();
+            long t1 = System.nanoTime();
             while ((System.nanoTime() - t1) / 1000000000 < time) {
             }
             finish();
@@ -88,8 +87,7 @@ public class YouTubeList extends ListActivity {
         }
     }
 
-
-    public class adapter extends RecyclerView.Adapter<idViewHolder> {
+    /*public class adapter extends RecyclerView.Adapter<idViewHolder> {
 
         @Override
         public idViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -107,5 +105,5 @@ public class YouTubeList extends ListActivity {
         public int getItemCount() {
             return 0;
         }
-    }
+    }*/
 }

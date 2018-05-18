@@ -4,6 +4,7 @@
     <string name="netflix">Netflix</string>
     <string name="playTime">Enter the playback Time (in seconds)</string>
     <string name="enterIDPrompt">Enter the video IDs</string>
-    <string name="addID">Add another ID</string>
+    <string name="addID">Add ID</string>
     <string name="play">Play</string>
+    <string name="id">ID goes here</string>
 </resources>
