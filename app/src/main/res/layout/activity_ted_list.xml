@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <EditText
-        android:id="@+id/y_playbackTime"
+        android:id="@+id/t_playbackTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -18,14 +18,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/y_textView"
+        android:id="@+id/t_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/enterIDPrompt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/y_playbackTime" />
+        app:layout_constraintTop_toBottomOf="@+id/t_playbackTime" />
 
     <!--
     <android.support.v7.widget.RecyclerView
@@ -49,7 +49,7 @@
     -->
 
     <EditText
-        android:id="@+id/y_ID"
+        android:id="@+id/t_ID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -57,10 +57,10 @@
         android:hint="@string/id"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/y_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/t_textView" />
 
     <Button
-        android:id="@+id/y_addID"
+        android:id="@+id/t_addID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -68,10 +68,10 @@
         android:padding="8dp"
         android:text="@string/addID"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/y_ID" />
+        app:layout_constraintTop_toBottomOf="@+id/t_ID" />
 
     <Button
-        android:id="@+id/y_play"
+        android:id="@+id/t_play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -79,6 +79,6 @@
         android:padding="8dp"
         android:text="@string/play"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/y_ID" />
+        app:layout_constraintTop_toBottomOf="@+id/t_ID" />
 
 </android.support.constraint.ConstraintLayout>

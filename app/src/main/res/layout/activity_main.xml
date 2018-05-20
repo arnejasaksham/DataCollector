@@ -25,7 +25,7 @@
             app:srcCompat="@drawable/youtube" />
 
         <ImageButton
-            android:id="@+id/Netflix"
+            android:id="@+id/Ted"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@string/netflix"
@@ -34,6 +34,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/YouTube"
+            app:srcCompat="@drawable/ted" />
+
+        <ImageButton
+            android:id="@+id/Netflix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/netflix"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Ted"
             app:srcCompat="@drawable/netflix" />
 
         <ImageButton
@@ -47,18 +59,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Netflix"
             app:srcCompat="@drawable/hotstar" />
-
-        <ImageButton
-            android:id="@+id/blah"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/youtube"
-            android:padding="0dp"
-            android:scaleType="fitXY"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Hotstar"
-            app:srcCompat="@drawable/youtube" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

@@ -1,5 +1,6 @@
 package com.example.saksham.datacollector;
 
+//import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,25 +15,36 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
-public class YouTubeList extends AppCompatActivity {
-
+public class TedList extends AppCompatActivity {
     int idCount;
     EditText id, playTime;
     Button add;
     Button play;
+    //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
     ArrayList<String> a;
 
+    /*//DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
+    ArrayAdapter<EditText> adapter;
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_you_tube_list);
-        Log.d("YouTube", "View Set");
+        setContentView(R.layout.activity_ted_list);
+        Log.d("Ted", "View Set");
         idCount=0;
-        id = findViewById(R.id.y_ID);
-        playTime = findViewById(R.id.y_playbackTime);
+        id = findViewById(R.id.t_ID);
+        playTime = findViewById(R.id.t_playbackTime);
         a = new ArrayList<>();
 
-        add = findViewById(R.id.y_addID);
+        //adapter=new ArrayAdapter<EditText>(this, android.R.layout.simple_list_item_1, listItems);
+        //setListAdapter(adapter);
+
+        /*RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setAdapter(new adapter()); //create and set the adapter
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        */
+
+        add = findViewById(R.id.t_addID);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,15 +61,16 @@ public class YouTubeList extends AppCompatActivity {
             }
         });
 
-        play = findViewById(R.id.y_play);
+        play = findViewById(R.id.t_play);
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String str = playTime.getText().toString();
                 if(!str.equals("") && idCount > 0) {
                     int time = parseInt(str);
-                    for (int i = 0; i < idCount; i++) {
-                        watchYoutubeVideo(a.get(i), time);
+                    for(int i=0; i<idCount; i++)
+                    {
+                        watchTedVideo(a.get(i), time);
                     }
                 }
                 else {
@@ -70,9 +83,8 @@ public class YouTubeList extends AppCompatActivity {
         });
     }
 
-    public void watchYoutubeVideo(String id, int time) {
-        Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
-        Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=" + id));
+    public void watchTedVideo(String id, int time) {
+        Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://go.ted.com/" + id));
         if (appIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(appIntent);
             try {
@@ -82,18 +94,7 @@ public class YouTubeList extends AppCompatActivity {
             }
         }
         else {
-            if (webIntent.resolveActivity(getPackageManager()) != null) {
-                startActivity(webIntent);
-                try {
-                    Thread.sleep(time * 1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            else {
-                Toast.makeText(this,"No app found to perform this action!",Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(this,"No app found to perform this action!",Toast.LENGTH_SHORT).show();
         }
-
     }
 }

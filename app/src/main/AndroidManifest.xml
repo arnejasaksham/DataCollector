@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".YouTubeList"
             android:label="YouTube"/>
+        <activity android:name=".TedList"
+            android:label="Ted" />
         <activity android:name=".NetflixList"
             android:label="Netflix"/>
         <activity android:name=".HotstarList"

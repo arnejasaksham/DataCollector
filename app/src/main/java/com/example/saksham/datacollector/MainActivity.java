@@ -16,7 +16,15 @@ public class MainActivity extends AppCompatActivity {
         y.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,YouTubeList.class);
+                Intent i = new Intent(MainActivity.this,YouTubeList.class);
+                startActivity(i);
+            }
+        });
+        ImageButton t = findViewById(R.id.Ted);
+        t.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,TedList.class);
                 startActivity(i);
             }
         });
@@ -24,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         n.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,NetflixList.class);
+                Intent i = new Intent(MainActivity.this,NetflixList.class);
                 startActivity(i);
             }
         });
@@ -32,15 +40,7 @@ public class MainActivity extends AppCompatActivity {
         h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,HotstarList.class);
-                startActivity(i);
-            }
-        });
-        ImageButton b = findViewById(R.id.blah);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,YouTubeList.class);
+                Intent i = new Intent(MainActivity.this,HotstarList.class);
                 startActivity(i);
             }
         });
